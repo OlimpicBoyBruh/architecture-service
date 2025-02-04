@@ -1,0 +1,3 @@
+alter table if exists monument add constraint fk_monument_creator_monument_id foreign key (creator_monument_id) references creator_monument;
+alter table if exists monument add constraint fk_monument_expert_monument_id foreign key (expert_monument_id) references monument_expert_evaluation;
+alter table if exists monument add constraint fk_monument_regioncode foreign key (regioncode) references region;
