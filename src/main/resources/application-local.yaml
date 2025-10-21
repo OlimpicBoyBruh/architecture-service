@@ -1,9 +1,9 @@
 server:
-  port: 9090
+  port: 9099
 
 spring:
   datasource:
-    url: jdbc:postgresql://localhost:5432/db01
+    url: jdbc:postgresql://localhost:5440/architecture-db
     username: postgres
     password: qwerty123
     driver-class-name: org.postgresql.Driver

@@ -6,8 +6,9 @@ services:
     container_name: "architecture-db"
     restart: always
     environment:
-      - POSTGRES_DB=db01
+      - POSTGRES_DB=architecture-db
       - POSTGRES_USER=postgres
       - POSTGRES_PASSWORD=qwerty123
     ports:
-      - 5432:5432
+      - 5440:5432
+

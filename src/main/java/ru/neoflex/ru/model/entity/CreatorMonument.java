@@ -1,6 +1,7 @@
 package ru.neoflex.ru.model.entity;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
+import io.swagger.v3.oas.annotations.media.Schema;
 import jakarta.persistence.CascadeType;
 import jakarta.persistence.Entity;
 import jakarta.persistence.FetchType;
@@ -8,21 +9,35 @@ import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.OneToMany;
+import jakarta.persistence.SequenceGenerator;
 import lombok.Data;
 import java.util.List;
 
 @Entity
 @Data
+@Schema(description = "Создатель памятника")
 public class CreatorMonument {
     @Id
-    @GeneratedValue(generator = "creatorMonument_id_seq", strategy = GenerationType.SEQUENCE)
+    @SequenceGenerator(name = "creator_monument_id_seq_gen", sequenceName = "creator_monument_id_seq", allocationSize = 50)
+    @GeneratedValue(generator = "creator_monument_id_seq_gen", strategy = GenerationType.SEQUENCE)
+    @Schema(description = "Уникальный идентификатор создателя", example = "1")
     private Long id;
+    
+    @Schema(description = "Имя создателя", example = "Александр")
     private String firstName;
+    
+    @Schema(description = "Отчество создателя", example = "Михайлович")
     private String middleName;
+    
+    @Schema(description = "Фамилия создателя", example = "Опекушин")
     private String lastName;
+    
+    @Schema(description = "Дата рождения создателя", example = "1838-11-28")
     private String dateOfBirth;
+    
     @OneToMany(mappedBy = "creatorMonument", fetch = FetchType.EAGER, cascade = CascadeType.ALL)
     @JsonIgnore
+    @Schema(description = "Список памятников, созданных этим автором")
     private List<Monument> monuments;
 
 }

@@ -5,6 +5,6 @@ import org.springframework.stereotype.Repository;
 import ru.neoflex.ru.model.entity.Monument;
 
 @Repository
-public interface MonumentRepository extends JpaRepository<Monument, Long> {
+public interface MonumentRepository extends JpaRepository<Monument, Integer> {
 
 }
